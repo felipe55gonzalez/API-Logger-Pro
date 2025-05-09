@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Captura de Logs Avanzada",
+    "version": "1.1",
+    "description": "Captura logs de consola y envíalos a una API, con gestión avanzada.",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "tabs",
+      "scripting"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ]
+  }
